@@ -17,26 +17,37 @@ function PostComment({ data }) {
   const { id } = useParams();
   const queryClient = useQueryClient();
 
-  console.log(id);
-
   const submitComment = async () => {
-    setloading(true);
-    const response = await fetch(
-      `http://localhost:8080/user/postComment?tweetId=${id}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+    try {
+      setloading(true);
+      const response = await fetch(
+        `http://localhost:8080/user/postComment?tweetId=${id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            content: content,
+            imageUrl: "",
+          }),
         },
-        body: JSON.stringify({ content: content }),
-      },
-    );
-    const data = await response.json();
-    if (response.ok) {
+      );
+      const data = await response.json();
+      if (response.ok) {
+        setloading(false);
+        setContent("");
+        queryClient.invalidateQueries("comments");
+      }
+
+      if (!response.ok) {
+        setloading(false);
+        setContent("");
+      }
+    } catch (error) {
       setloading(false);
       setContent("");
-      queryClient.invalidateQueries("comments");
     }
   };
 

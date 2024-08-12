@@ -3,7 +3,6 @@ import { BiComment, BiHeart, BiRepost } from "react-icons/bi";
 import { BsEye, BsHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { time } from "../utils/TimeConversion";
-import InteractionBar from "./InteractionBar";
 
 function Post({ post }) {
   const [isLiked, setIslIked] = useState(post.liked);
@@ -43,7 +42,7 @@ function Post({ post }) {
         <div className="flex w-full flex-col gap-1">
           <Link
             to={`/post/${post.tweet.id}`}
-            className="flex items-center gap-2"
+            className="flex items-center gap-1"
           >
             <span className="text-lg font-semibold text-white">
               {post.tweet.user.displayname}
@@ -51,6 +50,7 @@ function Post({ post }) {
             <span className="font-semibold text-[#858585]">
               {"@" + post.tweet.user.username}
             </span>
+            <span className="text-[#858585]">~</span>
             <span className="font-semibold text-[#858585]">{timeOfTweet}</span>
           </Link>
           <Link to={`/post/${post.tweet.id}`} className="text-white">

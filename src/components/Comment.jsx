@@ -20,6 +20,15 @@ function Comment({ data }) {
           <span className="text-[#777777]">{day}</span>
         </div>
         <p className="text-lg text-white">{data.content}</p>
+        {data.commentImageses.length == 1 && (
+          <div className="flex justify-center rounded-xl object-cover">
+            <img
+              src={data.commentImageses[0].url}
+              alt="image"
+              className="rounded-xl object-cover"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
