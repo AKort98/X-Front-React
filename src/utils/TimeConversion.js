@@ -45,3 +45,15 @@ export const time = (timestamp) => {
     return differenceInMinutes + "m";
 };
 
+export const getDayandMonth = (timestamp) => {
+    const date = new Date(timestamp);
+    const year = date.getUTCFullYear();
+    const monthNames = [
+        "Jan", "Feb", "March", "April", "May", "June",
+        "July", "Aug", "Sept", "Oct", "Nov", "Dec"
+    ];
+    const month = monthNames[date.getUTCMonth()]; // Months are 0-based
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    return `${month} ${day}`;
+}
+

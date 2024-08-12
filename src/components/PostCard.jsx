@@ -30,7 +30,7 @@ function PostCard({ data }) {
           />
         ))}
       </div>
-      <div className="flex items-center gap-2 font-bold text-gray-600">
+      <div className="mt-3 flex items-center gap-2 font-bold text-gray-600">
         <span className="">{time}</span>
         <span>-</span>
         <span className="">{day}</span>

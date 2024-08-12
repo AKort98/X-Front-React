@@ -34,7 +34,7 @@ function PostDetails() {
     );
 
   return (
-    <div className="flex h-auto flex-col border-l-2 border-r-2 border-[#1b1b1be8]">
+    <div className="flex h-auto flex-col border-l-[1px] border-r-[1px] border-gray-700">
       <BackNav />
       <div className="mt-14">
         <PostCard data={data} />

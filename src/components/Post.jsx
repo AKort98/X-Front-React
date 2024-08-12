@@ -40,7 +40,6 @@ function Post({ post }) {
             className="size-12 cursor-pointer rounded-full hover:opacity-65"
           />
         </Link>
-        <div></div>
         <div className="flex w-full flex-col gap-1">
           <Link
             to={`/post/${post.tweet.id}`}
