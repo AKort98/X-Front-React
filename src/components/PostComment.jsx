@@ -1,25 +1,30 @@
 import React from "react";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQueryClient } from "react-query";
-import ReactLoading from "react-loading";
-import { VscLoading } from "react-icons/vsc";
-import { CgSpinner } from "react-icons/cg";
+import { storage } from "../../firebase";
+import { motion } from "framer-motion";
+import { BiPoll } from "react-icons/bi";
+import { FaUpload } from "react-icons/fa";
+import { GiFactory } from "react-icons/gi";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function PostComment({ data }) {
   const [showReply, setShowReply] = useState(false);
-  const [content, setContent] = useState("");
   const [loading, setloading] = useState(false);
-
+  const [content, setContent] = useState("");
+  const [image, setImage] = useState(null);
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
   const { id } = useParams();
   const queryClient = useQueryClient();
+  const fileInputRef = useRef(null);
 
   const submitComment = async () => {
     try {
       setloading(true);
+      const url = await handleUpload();
+
       const response = await fetch(
         `http://localhost:8080/user/postComment?tweetId=${id}`,
         {
@@ -28,13 +33,9 @@ function PostComment({ data }) {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({
-            content: content,
-            imageUrl: "",
-          }),
+          body: JSON.stringify({ content: content, imageUrl: url }),
         },
       );
-      const data = await response.json();
       if (response.ok) {
         setloading(false);
         setContent("");
@@ -42,13 +43,32 @@ function PostComment({ data }) {
       }
 
       if (!response.ok) {
-        setloading(false);
         setContent("");
+        setloading(false);
       }
     } catch (error) {
-      setloading(false);
       setContent("");
+      setloading(false);
     }
+  };
+
+  const handleUpload = async () => {
+    if (!image) return null;
+
+    try {
+      const storageRef = ref(storage, `${image.name}`);
+      await uploadBytes(storageRef, image);
+      console.log(`Image ${image.name} has been uploaded`);
+
+      const downloadURL = await getDownloadURL(storageRef);
+      return downloadURL;
+    } catch (error) {
+      console.error("Upload failed:", error);
+    }
+  };
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
   };
 
   return (
@@ -68,17 +88,39 @@ function PostComment({ data }) {
             placeholder="Post your reply"
             className="w-full bg-transparent text-xl text-white focus:outline-none"
             onFocus={() => setShowReply(true)}
-            onBlur={() => setShowReply(false)}
             value={content}
             onChange={(e) => setContent(e.target.value)}
           ></textarea>
-          <button
-            className="mt-2 w-20 self-end rounded-2xl bg-blue-600 p-1 font-semibold text-white disabled:opacity-50"
-            onClick={submitComment}
-            disabled={loading || content === ""}
-          >
-            {loading ? "Posting" : "Reply"}
-          </button>
+          {showReply ? (
+            <div className="mt-6 flex items-end justify-between">
+              <div className="flex w-1/3 justify-between gap-3">
+                <input
+                  type="file"
+                  multiple
+                  accept="image/*"
+                  ref={fileInputRef}
+                  onChange={(e) => setImage(e.target.files[0])}
+                  hidden={true}
+                ></input>
+                <FaUpload
+                  className="cursor-pointer text-blue-700"
+                  onClick={handleButtonClick}
+                />
+                <GiFactory className="cursor-pointer text-blue-700" />
+                <BiPoll className="cursor-pointer text-blue-700" />
+                <FaUpload className="cursor-pointer text-blue-700" />
+              </div>
+              <div className="">
+                <button
+                  className="rounded-3xl bg-blue-500 px-5 py-1 disabled:opacity-50"
+                  disabled={loading || content === ""}
+                  onClick={submitComment}
+                >
+                  {loading ? "posting" : "Post"}
+                </button>
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
