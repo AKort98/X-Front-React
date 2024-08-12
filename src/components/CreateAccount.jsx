@@ -17,7 +17,8 @@ function CreateAccount() {
     email,
     password,
     displayname,
-    avatar: "www.pic.com",
+    avatar:
+      "https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-700-205577532.jpg",
   };
 
   const handleSubmit = async (e) => {
@@ -44,7 +45,7 @@ function CreateAccount() {
       if (response.status == 400) {
         setLoading(false);
         setPasswordError(
-          "Password must include at leat one capital letter and one number"
+          "Password must include at leat one capital letter and one number",
         );
       }
       if (response.status == 500) {
@@ -59,15 +60,15 @@ function CreateAccount() {
 
   return (
     <form
-      className="flex justify-center align-middle items-center h-lvh w-full"
+      className="flex h-lvh w-full items-center justify-center align-middle"
       onSubmit={handleSubmit}
     >
-      <div className="size-[520px] rounded-lg border-gray-500 border flex flex-col gap-4 p-10 overflow-y-auto">
-        <h1 className="text-gray-200 text-4xl font-semibold">Create Account</h1>
+      <div className="flex size-[520px] flex-col gap-4 overflow-y-auto rounded-lg border border-gray-500 p-10">
+        <h1 className="text-4xl font-semibold text-gray-200">Create Account</h1>
         <div className="flex flex-col gap-6">
           <input
             type="text"
-            className="w-full p-4 bg-transparent border border-gray-800 focus:border-blue-600 transition-colors outline-none text-white"
+            className="w-full border border-gray-800 bg-transparent p-4 text-white outline-none transition-colors focus:border-blue-600"
             placeholder="Username"
             required
             onChange={(e) => setUsername(e.target.value)}
@@ -76,7 +77,7 @@ function CreateAccount() {
           />
           <input
             type="text"
-            className="w-full p-4 bg-transparent border border-gray-800 focus:border-blue-600 transition-colors outline-none text-white"
+            className="w-full border border-gray-800 bg-transparent p-4 text-white outline-none transition-colors focus:border-blue-600"
             placeholder="Display Name"
             required
             onChange={(e) => setDisplayName(e.target.value)}
@@ -85,7 +86,7 @@ function CreateAccount() {
           />
           <input
             type="email"
-            className="w-full p-4 bg-transparent border border-gray-800 focus:border-blue-600 transition-colors outline-none  text-white"
+            className="w-full border border-gray-800 bg-transparent p-4 text-white outline-none transition-colors focus:border-blue-600"
             placeholder="Email"
             required
             id="email"
@@ -94,7 +95,7 @@ function CreateAccount() {
           />
           <input
             type="password"
-            className="w-full p-4 bg-transparent border border-gray-800 focus:border-blue-600 transition-colors outline-none  text-white"
+            className="w-full border border-gray-800 bg-transparent p-4 text-white outline-none transition-colors focus:border-blue-600"
             placeholder="Password"
             required
             id="password"
@@ -108,17 +109,17 @@ function CreateAccount() {
           )}
         </div>
         <div className="flex flex-col gap-4">
-          <h2 className="text-gray-200 mt-5 text-1xl font-semibold">
+          <h2 className="text-1xl mt-5 font-semibold text-gray-200">
             Date of Birth
           </h2>
-          <p className="text-gray-600 text leading-4">
+          <p className="text leading-4 text-gray-600">
             This will not be shown publicly. Confirm your own age, even if this
             account is for a business, a pet, or something else.
           </p>
           <div>
             <input
               type="date"
-              className="bg-transparent w-full text-white outline-none border border-gray-800 p-4 "
+              className="w-full border border-gray-800 bg-transparent p-4 text-white outline-none"
               required
               name="date"
               id="date"
@@ -126,7 +127,7 @@ function CreateAccount() {
           </div>
         </div>
         <button
-          className="w-full bg-white text-black p-3 rounded-2xl font-semibold text-xl disabled:opacity-60"
+          className="w-full rounded-2xl bg-white p-3 text-xl font-semibold text-black disabled:opacity-60"
           disabled={loading}
         >
           {loading ? "Creating Account..." : "Create Account"}

@@ -33,7 +33,7 @@ function ProtectedProfile() {
     retry: false,
   });
 
-  if (isLoading) return " ";
+  if (isLoading) return "";
 
   return data ? <Outlet /> : <Navigate to="/home" />;
 }

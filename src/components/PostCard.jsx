@@ -10,7 +10,7 @@ function PostCard({ data }) {
         <img
           src={data.tweet.user.avatar}
           alt="avatar"
-          className="size-14 rounded-lg"
+          className="size-14 rounded-full"
         />
         <div className="flex flex-col">
           <span className="text-white">{data.tweet.user.displayname}</span>
@@ -19,7 +19,7 @@ function PostCard({ data }) {
           </span>
         </div>
       </div>
-      <p className="mt-6 text-lg text-white">{data.tweet.content}</p>
+      <p className="mt-4 text-lg text-white">{data.tweet.content}</p>
       <div className="mt-2 flex flex-wrap justify-center gap-1">
         {data.tweet.images.map((image) => (
           <img

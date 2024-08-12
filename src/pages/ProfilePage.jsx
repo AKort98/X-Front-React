@@ -35,7 +35,7 @@ function ProfilePage() {
   if (isLoading)
     return (
       <div className="mt-20 flex justify-center">
-        <ReactLoading type="spinningBubbles" color="#1D9BF0" width={30} />;
+        <ReactLoading type="spinningBubbles" color="#1D9BF0" width={30} />
       </div>
     );
 

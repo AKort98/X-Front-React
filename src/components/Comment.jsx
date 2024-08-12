@@ -8,7 +8,7 @@ function Comment({ data }) {
       <img
         src={data.localUser.avatar}
         alt="avatar"
-        className="size-14 rounded-lg"
+        className="size-12 rounded-full"
       />
       <div className="flex flex-col">
         <div className="flex gap-1">
