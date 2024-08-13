@@ -40,7 +40,7 @@ function ProfilePage() {
     );
 
   return (
-    <div className="flex h-auto min-w-[500px] flex-col border-l-[1px] border-r-[1px] border-gray-700">
+    <div className="flex h-auto flex-col md:border-l-[1px] md:border-r-[1px] md:border-gray-700">
       <ProfileBackNav data={data} />
       <div className="md:mt-[78px]">
         <ProfileHeader data={data} />

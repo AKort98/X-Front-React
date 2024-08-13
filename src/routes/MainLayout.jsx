@@ -5,17 +5,17 @@ import SearchBar from "../components/SearchBar";
 const MainLayout = () => (
   <div className="flex h-dvh md:justify-between md:gap-24">
     {/* Sidebar */}
-    <div className="left-0 h-full flex-shrink-0">
+    <div className="left-0 h-full">
       <Sidebar />
     </div>
 
     {/* Main content */}
-    <div className="w-full flex-shrink-0 overflow-scroll md:w-[750px]">
+    <div className="w-full overflow-scroll md:w-[750px]">
       <Outlet />
     </div>
 
     {/* SearchBar */}
-    <div className="hidden flex-shrink-0 md:inline-block">
+    <div className="hidden md:inline-block">
       <SearchBar />
     </div>
   </div>

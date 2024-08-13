@@ -1,6 +1,6 @@
 import React from "react";
-import { BiBell, BiMessage } from "react-icons/bi";
-import { CgMore } from "react-icons/cg";
+
+import InteractWithProfileBar from "./InteractWithProfileBar";
 
 function ProfileHeader({ data }) {
   return (
@@ -16,18 +16,11 @@ function ProfileHeader({ data }) {
         />
         <img
           src={data.user.avatar}
-          alt=""
-          className="size-24 translate-x-3 translate-y-[-50px] rounded-full border-2 border-black object-cover md:size-40 md:translate-x-3 md:translate-y-[-90px]"
+          alt="user avatar"
+          className="size-24 translate-x-3 translate-y-[-50px] rounded-full border-4 border-black object-cover md:size-40 md:translate-x-3 md:translate-y-[-90px]"
         />
       </div>
-      <div className="mt-16 flex justify-end gap-2 p-2 md:mt-4">
-        <CgMore color="white" size={30} className="rounded-2xl border p-1" />
-        <BiMessage color="white" size={30} className="rounded-2xl border p-1" />
-        <BiBell color="white" size={30} className="rounded-2xl border p-1" />
-        <button className="rounded-2xl border px-4 py-1 text-white">
-          Following
-        </button>
-      </div>
+      <InteractWithProfileBar data={data} />
     </>
   );
 }

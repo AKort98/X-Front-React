@@ -57,7 +57,7 @@ function Feed() {
   return (
     <>
       <Header />
-      <div className="border-l-gray-700 border-r-gray-700 pb-12 sm:border-r-[1px] sm:pb-0 md:min-w-[500px] md:border-l-[1px]">
+      <div className="border-l-gray-700 border-r-gray-700 pb-12 sm:border-r-[1px] sm:pb-0 md:border-l-[1px]">
         <div>
           <ForYou />
         </div>

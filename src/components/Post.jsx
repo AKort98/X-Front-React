@@ -31,12 +31,12 @@ function Post({ post }) {
 
   return (
     <div className="flex flex-col border-b-[1px] border-gray-700 p-3">
-      <div className="flex gap-2">
-        <Link to={`/${post.tweet.user.username}`}>
+      <div className="flex gap-3">
+        <Link to={`/${post.tweet.user.username}`} className="w-[50px]">
           <img
             src={post.tweet.user.avatar}
             alt="user avatar"
-            className="size-12 cursor-pointer rounded-full hover:opacity-65"
+            className="size-8 cursor-pointer rounded-full hover:opacity-65 md:size-12"
           />
         </Link>
         <div className="flex w-full flex-col gap-1">
