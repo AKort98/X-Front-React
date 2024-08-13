@@ -9,7 +9,7 @@ function ProfileHeader({ data }) {
         <img
           src={
             data.user.header ||
-            "https://www.mainstreethost.com/wp-content/uploads/2013/07/5-free-twitter-headers-east-coast-city-skylines-8.jpg"
+            "https://user-images.githubusercontent.com/513929/53929982-e5497700-404c-11e9-8393-dece0b196c98.png"
           }
           alt=""
           className="h-44 w-full object-cover md:h-60"

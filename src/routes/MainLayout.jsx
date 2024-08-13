@@ -3,9 +3,9 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
 const MainLayout = () => (
-  <div className="flex h-dvh md:justify-between md:gap-24">
+  <div className="flex h-dvh justify-between">
     {/* Sidebar */}
-    <div className="left-0 h-full">
+    <div className="left-0 z-20 h-dvh">
       <Sidebar />
     </div>
 
@@ -15,7 +15,7 @@ const MainLayout = () => (
     </div>
 
     {/* SearchBar */}
-    <div className="hidden md:inline-block">
+    <div className="hidden md:inline-block md:w-[300px]">
       <SearchBar />
     </div>
   </div>

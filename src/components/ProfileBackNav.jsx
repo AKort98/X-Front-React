@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function ProfileBackNav({ data }) {
   const navigate = useNavigate();
   return (
-    <div className="fixed flex w-full items-center gap-8 bg-transparent p-4 backdrop-blur-md">
+    <div className="fixed flex w-[748px] items-center gap-8 bg-transparent p-4 backdrop-blur-md">
       <button onClick={() => navigate("/home")}>
         <BiLeftArrowAlt color="white" size={30} />
       </button>

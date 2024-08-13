@@ -14,9 +14,9 @@ function Sidebar() {
   const [open, setOpen] = useState();
 
   return (
-    <div className="hidden h-dvh flex-col p-2 md:flex lg:w-[200px]">
+    <div className="hidden flex-col md:flex md:w-[300px]">
       {open && (
-        <div className="fixed z-20 flex h-full w-dvw items-center justify-center rounded-lg bg-[#888888cb]">
+        <div className="fixed flex h-full w-dvw items-center justify-center bg-[#888888cb]">
           <button
             onClick={() => setOpen((prev) => !prev)}
             className="absolute left-8 top-8 rounded-full bg-[#02020293] p-2 hover:bg-[#020202cc]"
@@ -28,10 +28,10 @@ function Sidebar() {
           </div>
         </div>
       )}
-      <div className="p-2">
+      <div className="mt-4 px-10">
         <LogoX size={8} />
       </div>
-      <ul className="flex h-3/5 flex-col justify-evenly text-2xl text-slate-200">
+      <ul className="mt-4 flex flex-col gap-4 px-8 text-2xl text-slate-200">
         <Link
           to={`/home`}
           className="flex cursor-pointer items-center gap-4 rounded-2xl p-2 hover:bg-slate-800"
@@ -56,14 +56,16 @@ function Sidebar() {
           <li className="">Profile</li>
         </div>
       </ul>
-      <button
-        value="Post"
-        className="rounded-2xl bg-blue-800 p-2 text-xl text-white"
-        onClick={() => setOpen((prev) => !prev)}
-      >
-        Post
-      </button>
-      <div className="mt-2 flex w-full items-center gap-2 p-2 capitalize">
+      <div className="mt-4 px-8">
+        <button
+          value="Post"
+          className="w-full rounded-2xl bg-blue-800 p-2 text-xl text-white"
+          onClick={() => setOpen((prev) => !prev)}
+        >
+          Post
+        </button>
+      </div>
+      <div className="mt-4 flex w-full gap-2 px-8 capitalize">
         <img
           src={currentUser.avatar}
           alt="user avatar"
