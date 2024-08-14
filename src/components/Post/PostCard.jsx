@@ -1,5 +1,5 @@
 import React from "react";
-import { getTimeOfTweet, getDayOfTweet } from "../utils/TimeConversion";
+import { getTimeOfTweet, getDayOfTweet } from "../../utils/TimeConversion";
 import { Link } from "react-router-dom";
 
 function PostCard({ data }) {

@@ -1,8 +1,8 @@
 import { useInfiniteQuery } from "react-query";
 import ReactLoading from "react-loading";
-import Comment from "./Comment";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import Comment from "./Comment";
 
 function CommentsFeed({ comment }) {
   const token = localStorage.getItem("token");

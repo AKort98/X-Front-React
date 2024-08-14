@@ -2,10 +2,10 @@ import React from "react";
 import { useInfiniteQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import PostList from "./PostList";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import ReactLoading from "react-loading";
+import PostList from "../Post/PostList";
 
 function UserPosts() {
   const { username } = useParams();

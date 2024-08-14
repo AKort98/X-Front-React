@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BiComment, BiHeart, BiRepost } from "react-icons/bi";
 import { BsEye, BsHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { time } from "../utils/TimeConversion";
+import { time } from "../../utils/TimeConversion";
 
 function Post({ post }) {
   const [isLiked, setIslIked] = useState(post.liked);

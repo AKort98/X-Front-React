@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 
 import Navbar from "../components/Navbar";
-import CreatePost from "../components/CreatePost";
 import ReactLoading from "react-loading";
 import ForYou from "../components/ForYou";
-import PostList from "../components/PostList";
+import PostList from "../components/Post/PostList";
 import { useInfiniteQuery } from "react-query";
 import { useInView } from "react-intersection-observer";
 import Header from "../components/Header";
+import CreatePost from "../components/Post/CreatePost";
 
 function Feed() {
   const { ref, inView } = useInView();

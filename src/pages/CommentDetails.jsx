@@ -1,9 +1,9 @@
 import React from "react";
 
-import CommentCard from "../components/CommentCard";
 import BackNav from "../components/BackNav";
-import RepliesFeed from "../components/RepliesFeed";
-import PostComment from "../components/PostComment";
+import CommentCard from "../components/Comment/CommentCard";
+import PostComment from "../components/Comment/PostComment";
+import RepliesFeed from "../components/Replies/RepliesFeed";
 
 function CommentDetails() {
   return (

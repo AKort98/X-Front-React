@@ -2,7 +2,7 @@ import React from "react";
 import { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQueryClient } from "react-query";
-import { storage } from "../../firebase";
+import { storage } from "../../../firebase";
 import { motion } from "framer-motion";
 import { BiPoll } from "react-icons/bi";
 import { FaUpload } from "react-icons/fa";

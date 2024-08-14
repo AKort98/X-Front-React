@@ -3,10 +3,10 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import ReactLoading from "react-loading";
 import BackNav from "../components/BackNav";
-import PostCard from "../components/PostCard";
-import InteractionBar from "../components/InteractionBar";
-import PostComment from "../components/PostComment";
-import CommentsFeed from "../components/CommentsFeed";
+import PostCard from "../components/Post/PostCard";
+import CommentsFeed from "../components/Comment/CommentsFeed";
+import PostComment from "../components/Comment/PostComment";
+import InteractionBar from "../components/Post/InteractionBar";
 
 function PostDetails() {
   const { id } = useParams("id");

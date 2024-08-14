@@ -1,5 +1,4 @@
 import React from "react";
-
 import InteractWithProfileBar from "./InteractWithProfileBar";
 
 function ProfileHeader({ data }) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
-import { getDayandMonth } from "../utils/TimeConversion";
+import { getDayandMonth } from "../../utils/TimeConversion";
 
 function CommentCard() {
   const { commentId } = useParams();

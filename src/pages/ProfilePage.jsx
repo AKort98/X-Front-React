@@ -1,12 +1,13 @@
 import React from "react";
-import ProfileHeader from "../components/ProfileHeader";
-import ProfileDetails from "../components/ProfileDetails";
-import NavigationBar from "../components/NavigationBar";
+
 import { Outlet } from "react-router-dom";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import ReactLoading from "react-loading";
-import ProfileBackNav from "../components/ProfileBackNav";
+import ProfileBackNav from "../components/Profile/ProfileBackNav";
+import ProfileHeader from "../components/Profile/ProfileHeader";
+import ProfileDetails from "../components/Profile/ProfileDetails";
+import NavigationBar from "../components/Profile/NavigationBar";
 
 function ProfilePage() {
   const token = localStorage.getItem("token");

@@ -1,5 +1,5 @@
 import React from "react";
-import Comment from "./Comment";
+import Comment from "../Comment/Comment";
 
 function RepliesList({ pages }) {
   console.log(pages);

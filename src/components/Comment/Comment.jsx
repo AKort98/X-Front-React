@@ -1,5 +1,5 @@
 import React from "react";
-import { getDayandMonth } from "../utils/TimeConversion";
+import { getDayandMonth } from "../../utils/TimeConversion";
 import { Link } from "react-router-dom";
 import { BiComment } from "react-icons/bi";
 

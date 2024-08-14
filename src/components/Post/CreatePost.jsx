@@ -3,7 +3,7 @@ import { BiPoll } from "react-icons/bi";
 import { FaUpload } from "react-icons/fa";
 import { GiFactory } from "react-icons/gi";
 import { useQueryClient } from "react-query";
-import { storage } from "../../firebase";
+import { storage } from "../../../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function CreatePost() {

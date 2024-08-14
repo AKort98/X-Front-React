@@ -8,12 +8,11 @@ import Signin from "../pages/Signin.jsx";
 import Feed from "../pages/Feed.jsx";
 import MainLayout from "./MainLayout.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
-import UserPosts from "../components/UserPosts.jsx";
-import UserReplies from "../components/UserReplies.jsx";
-import UserMedia from "../components/UserMedia.jsx";
-import ProtectedProfile from "../components/ProtectedProfile.jsx";
 import CommentDetails from "../pages/CommentDetails.jsx";
-
+import ProtectedProfile from "../components/Profile/ProtectedProfile.jsx";
+import UserPosts from "../components/Profile/UserPosts.jsx";
+import UserReplies from "../components/Profile/UserReplies.jsx";
+import UserMedia from "../components/Profile/UserMedia.jsx";
 const AppRoutes = () => {
   return (
     <BrowserRouter>

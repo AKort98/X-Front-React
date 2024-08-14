@@ -6,7 +6,7 @@ import { CgClose, CgMail, CgOptions, CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import CreatePost from "./CreatePost";
+import CreatePost from "./Post/CreatePost";
 
 function Sidebar() {
   const location = useLocation();

@@ -1,8 +1,8 @@
 import React from "react";
 import { useInfiniteQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import RepliesList from "./RepliesList";
 import ReactLoading from "react-loading";
+import RepliesList from "./RepliesList";
 
 function RepliesFeed() {
   const { commentId } = useParams();
