@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from "react-query";
 import ReactLoading from "react-loading";
 import Comment from "./Comment";
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 function CommentsFeed({ comment }) {
@@ -34,6 +34,7 @@ function CommentsFeed({ comment }) {
   } = useInfiniteQuery({
     queryKey: ["comments", id],
     queryFn: fetchComments,
+
     getNextPageParam: (lastPage) => {
       return lastPage.nextPage > 0 ? lastPage.nextPage : undefined;
     },
@@ -56,13 +57,17 @@ function CommentsFeed({ comment }) {
   }
   return (
     <div className="flex flex-col">
-      {comments.pages.map((page) =>
-        page.comments.map((comment) => (
-          <div key={comment.id}>
-            <Comment data={comment} />
-          </div>
-        )),
-      )}
+      {comments.pages.map((page, index) => (
+        <div key={`page-${index}`}>
+          {page.comments.map((comment) => (
+            <div key={comment.comment.id}>
+              <Comment data={comment.comment} replyCount={comment.replyCount} />
+            </div>
+          ))}
+          ,
+        </div>
+      ))}
+
       <button
         className="text-white"
         onClick={fetchNextPage}

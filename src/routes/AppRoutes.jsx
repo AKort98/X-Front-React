@@ -7,12 +7,12 @@ import VeifyYourEmail from "../pages/VeifyYourEmail.jsx";
 import Signin from "../pages/Signin.jsx";
 import Feed from "../pages/Feed.jsx";
 import MainLayout from "./MainLayout.jsx";
-import { motion } from "framer-motion";
 import ProfilePage from "../pages/ProfilePage.jsx";
 import UserPosts from "../components/UserPosts.jsx";
 import UserReplies from "../components/UserReplies.jsx";
 import UserMedia from "../components/UserMedia.jsx";
 import ProtectedProfile from "../components/ProtectedProfile.jsx";
+import CommentDetails from "../pages/CommentDetails.jsx";
 
 const AppRoutes = () => {
   return (
@@ -26,6 +26,7 @@ const AppRoutes = () => {
           <Route element={<MainLayout />}>
             <Route path="/home" element={<Feed />} />
             <Route path="/post/:id" element={<PostDetails />} />
+            <Route path="/comment/:commentId" element={<CommentDetails />} />
             <Route element={<ProtectedProfile />}>
               <Route path="/user/:username" element={<ProfilePage />}>
                 <Route path="" element={<UserPosts />} />
