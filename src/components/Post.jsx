@@ -32,7 +32,7 @@ function Post({ post }) {
   return (
     <div className="flex flex-col border-b-[1px] border-gray-700 p-3">
       <div className="flex gap-3">
-        <Link to={`/${post.tweet.user.username}`} className="w-[50px]">
+        <Link to={`/user/${post.tweet.user.username}`} className="w-[50px]">
           <img
             src={post.tweet.user.avatar}
             alt="user avatar"

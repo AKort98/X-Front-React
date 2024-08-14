@@ -27,7 +27,7 @@ const AppRoutes = () => {
             <Route path="/home" element={<Feed />} />
             <Route path="/post/:id" element={<PostDetails />} />
             <Route element={<ProtectedProfile />}>
-              <Route path="/:username" element={<ProfilePage />}>
+              <Route path="/user/:username" element={<ProfilePage />}>
                 <Route path="" element={<UserPosts />} />
                 <Route path="replies" element={<UserReplies />} />
                 <Route path="media" element={<UserMedia />} />

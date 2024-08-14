@@ -7,7 +7,7 @@ function NavigationBar() {
   const { username } = useParams();
 
   const isActive = (path) => {
-    return location.pathname === `/${username}${path}`;
+    return location.pathname === `/user/${username}${path}`;
   };
 
   return (

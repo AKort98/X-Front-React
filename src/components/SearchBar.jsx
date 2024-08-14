@@ -47,7 +47,7 @@ function SearchBar() {
         {data && data.length > 0 && (
           <div className="absolute mt-6 flex h-72 w-full flex-col gap-2 overflow-scroll rounded-lg border border-gray-700 bg-black p-2">
             {data.map((user) => (
-              <Link to={`/${user.username}`} className="flex gap-2">
+              <Link to={`/user/${user.username}`} className="flex gap-2">
                 <img
                   key={user.id} // Add a unique key for each element
                   src={user.avatar}
