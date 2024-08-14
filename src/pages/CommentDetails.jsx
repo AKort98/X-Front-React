@@ -2,7 +2,6 @@ import React from "react";
 
 import BackNav from "../components/BackNav";
 import CommentCard from "../components/Comment/CommentCard";
-import PostComment from "../components/Comment/PostComment";
 import RepliesFeed from "../components/Replies/RepliesFeed";
 
 function CommentDetails() {
@@ -11,7 +10,6 @@ function CommentDetails() {
       <BackNav />
       <div className="mt-14">
         <CommentCard />
-        <PostComment />
         <RepliesFeed />
       </div>
     </div>
