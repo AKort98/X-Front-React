@@ -5,12 +5,15 @@ import { GiFactory } from "react-icons/gi";
 import { useQueryClient } from "react-query";
 import { storage } from "../../../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { CircularProgress } from "@mui/material";
 
 function CreatePost() {
   const currentUser = JSON.parse(localStorage.getItem("user"));
   const queryClient = useQueryClient();
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
+  const [disabled, setdisabled] = useState(true);
+  const [wordCount, setWordCount] = useState(0);
   const [selectedImages, setSelectedImages] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
 
@@ -33,6 +36,7 @@ function CreatePost() {
       setLoading(false);
       setSelectedImages([]);
       setPreviewUrls([]);
+      setWordCount(0);
       return;
     }
     if (!response.ok) {
@@ -47,6 +51,16 @@ function CreatePost() {
       URL.createObjectURL(file),
     );
     setPreviewUrls(previews);
+  };
+
+  const handleInput = (e) => {
+    setContent(e.target.value);
+    setdisabled(false);
+    const wordCount = e.target.value.split("");
+    if (wordCount.length > 100) {
+      setdisabled(true);
+    }
+    setWordCount(wordCount.length);
   };
 
   const handleButtonClick = () => {
@@ -92,7 +106,7 @@ function CreatePost() {
             placeholder="What is happening?!"
             className="bg-transparent text-xl focus:outline-none"
             value={content}
-            onChange={(e) => setContent(e.target.value)}
+            onChange={(e) => handleInput(e)}
           />
 
           <div className="mx-auto w-[600px]">
@@ -126,10 +140,19 @@ function CreatePost() {
               <BiPoll className="cursor-pointer text-blue-700" />
               <FaUpload className="cursor-pointer text-blue-700" />
             </div>
-            <div className="">
+            <div className="flex gap-4">
+              {wordCount > 100 ? (
+                <CircularProgress
+                  variant="determinate"
+                  value={100}
+                  color="error"
+                />
+              ) : (
+                <CircularProgress variant="determinate" value={wordCount} />
+              )}
               <button
                 className="rounded-3xl bg-blue-500 px-5 py-1 disabled:opacity-50"
-                disabled={loading || content === ""}
+                disabled={loading || content === "" || disabled}
                 onClick={postTweet}
               >
                 {loading ? "posting" : "Post"}
