@@ -1,11 +1,12 @@
 import React, { useRef, useState } from "react";
 import { BiPoll } from "react-icons/bi";
-import { FaUpload } from "react-icons/fa";
+import { FaSmile, FaUpload } from "react-icons/fa";
 import { GiFactory } from "react-icons/gi";
 import { useQueryClient } from "react-query";
 import { storage } from "../../../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { CircularProgress } from "@mui/material";
+import EmojiPicker from "emoji-picker-react";
 
 function CreatePost() {
   const currentUser = JSON.parse(localStorage.getItem("user"));
@@ -16,6 +17,7 @@ function CreatePost() {
   const [wordCount, setWordCount] = useState(0);
   const [selectedImages, setSelectedImages] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
+  const [emoji, setEmoji] = useState(false);
 
   const fileInputRef = useRef(null);
 
@@ -51,6 +53,10 @@ function CreatePost() {
       URL.createObjectURL(file),
     );
     setPreviewUrls(previews);
+  };
+
+  const handleEmojiClick = (e) => {
+    setContent((prevContent) => prevContent + e.emoji);
   };
 
   const handleInput = (e) => {
@@ -138,7 +144,22 @@ function CreatePost() {
               />
               <GiFactory className="cursor-pointer text-blue-700" />
               <BiPoll className="cursor-pointer text-blue-700" />
-              <FaUpload className="cursor-pointer text-blue-700" />
+              <div className="relative">
+                <FaSmile
+                  className="cursor-pointer text-blue-700"
+                  onClick={() => setEmoji((prev) => !prev)}
+                />
+                <div className="absolute">
+                  <EmojiPicker
+                    className="absolute left-8 z-10"
+                    open={emoji}
+                    theme="dark"
+                    onEmojiClick={handleEmojiClick}
+                    emojiStyle="apple"
+                    lazyLoadEmojis={true}
+                  />
+                </div>
+              </div>
             </div>
             <div className="flex gap-4">
               {wordCount > 100 ? (

@@ -8,6 +8,7 @@ function InteractWithProfileBar({ data }) {
   const [friend, setFriend] = useState(data.followedByCurrentLoggedInUser);
   const [disabled, setdisabled] = useState(false);
   const id = data.user.id;
+  const currentUser = JSON.parse(localStorage.getItem("user"));
 
   const unfollow = async () => {
     setFriend((prev) => !prev);
@@ -53,6 +54,16 @@ function InteractWithProfileBar({ data }) {
       console.log("failed to follow");
     }
   };
+
+  if (id === currentUser.id)
+    return (
+      <div className="mt-16 flex justify-end gap-2 p-2 md:mt-4">
+        <CgMore color="white" size={30} className="rounded-2xl border p-1" />
+        <button className="rounded-2xl border bg-white px-4 py-1 font-bold text-black disabled:opacity-45">
+          Update Profile
+        </button>
+      </div>
+    );
 
   if (!friend)
     return (

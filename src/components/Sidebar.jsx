@@ -16,14 +16,14 @@ function Sidebar() {
   return (
     <div className="hidden flex-col md:flex md:w-[300px]">
       {open && (
-        <div className="fixed flex h-full w-dvw items-center justify-center bg-[#888888cb]">
+        <div className="fixed flex h-full w-dvw items-center justify-center bg-[#383838de]">
           <button
             onClick={() => setOpen((prev) => !prev)}
             className="absolute left-8 top-8 rounded-full bg-[#02020293] p-2 hover:bg-[#020202cc]"
           >
             <CgClose size={24} color="white" />
           </button>
-          <div className="w-2/3">
+          <div className="absolute top-8 w-2/3">
             <CreatePost />
           </div>
         </div>
