@@ -1,17 +1,19 @@
 import React from "react";
 import LogoX from "./LogoX";
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiFillProfile } from "react-icons/ai";
 import { BiHome, BiNotification, BiSearch, BiShow } from "react-icons/bi";
 import { CgClose, CgMail, CgOptions, CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import CreatePost from "./Post/CreatePost";
+import { GiPerson, GiRamProfile } from "react-icons/gi";
 
 function Sidebar() {
   const location = useLocation();
   const currentUser = JSON.parse(localStorage.getItem("user"));
   const [open, setOpen] = useState();
+  console.log(location);
 
   return (
     <div className="hidden flex-col md:flex md:w-[300px]">
@@ -51,10 +53,17 @@ function Sidebar() {
           <CgMail />
           <li className="">Messages</li>
         </div>
-        <div className="flex cursor-pointer items-center gap-4 rounded-2xl p-2 hover:bg-slate-800">
-          <CgProfile />
+        <Link
+          to={`/user/${currentUser.username}`}
+          className="flex cursor-pointer items-center gap-4 rounded-2xl p-2 hover:bg-slate-800"
+        >
+          {location.pathname === `/user/${currentUser.username}` ? (
+            <CgProfile />
+          ) : (
+            <CgProfile color="grays" />
+          )}
           <li className="">Profile</li>
-        </div>
+        </Link>
       </ul>
       <div className="mt-4 px-8">
         <button

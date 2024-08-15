@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar";
 const MainLayout = () => (
   <div className="flex h-dvh justify-between">
     {/* Sidebar */}
-    <div className="left-0 z-20 h-dvh">
+    <div className="left-0 z-50 h-dvh">
       <Sidebar />
     </div>
 

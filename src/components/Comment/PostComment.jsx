@@ -116,7 +116,11 @@ function PostComment({ data }) {
                   disabled={loading || content === ""}
                   onClick={submitComment}
                 >
-                  {loading ? "posting" : "Post"}
+                  {loading ? (
+                    "posting"
+                  ) : (
+                    <span className="text-white"> Post</span>
+                  )}
                 </button>
               </div>
             </div>

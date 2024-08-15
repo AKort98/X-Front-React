@@ -11,6 +11,7 @@ function ProfileHeader({ data }) {
     setImageUrl(url);
     setOpen(true);
   };
+
   return (
     <>
       {open && (
@@ -40,7 +41,7 @@ function ProfileHeader({ data }) {
         <img
           src={data.user.avatar}
           alt="user avatar"
-          className="size-24 translate-x-3 translate-y-[-50px] cursor-pointer rounded-full border-4 border-black object-cover hover:opacity-45 md:size-40 md:translate-x-3 md:translate-y-[-90px]"
+          className="size-24 translate-x-3 translate-y-[-50px] cursor-pointer rounded-full border-4 border-black object-cover hover:opacity-75 md:size-40 md:translate-x-3 md:translate-y-[-90px]"
           onClick={(e) => previewImage(e.target.src)}
         />
       </div>
