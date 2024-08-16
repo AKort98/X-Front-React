@@ -79,6 +79,7 @@ function Post({ post }) {
                   alt="image"
                   className="rounded-md object-cover"
                   key={index}
+                  loading="lazy"
                 />
               ))}
             </Link>

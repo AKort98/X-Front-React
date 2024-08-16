@@ -40,8 +40,6 @@ function ProfilePage() {
       </div>
     );
 
-  console.log(data);
-
   return (
     <div className="flex h-auto flex-col md:border-l-[1px] md:border-r-[1px] md:border-gray-700">
       <ProfileBackNav data={data} />

@@ -1,12 +1,16 @@
 import React from "react";
 import { BiBell, BiMessage } from "react-icons/bi";
-import { CgMore } from "react-icons/cg";
+import { CgClose, CgMore } from "react-icons/cg";
 import { useState } from "react";
+import EditProfile from "./EditProfile";
+import userStore from "../../zustand/userStore";
 
 function InteractWithProfileBar({ data }) {
   const [hover, setHover] = useState(false);
   const [friend, setFriend] = useState(data.followedByCurrentLoggedInUser);
   const [disabled, setdisabled] = useState(false);
+  const { isOpen, open } = userStore();
+
   const id = data.user.id;
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
@@ -58,9 +62,17 @@ function InteractWithProfileBar({ data }) {
   if (id === currentUser.id)
     return (
       <div className="mt-16 flex justify-end gap-2 p-2 md:mt-4">
+        {isOpen && (
+          <div className="fixed left-0 top-0 z-50 flex h-dvh w-lvw items-center justify-center bg-[#252525de]">
+            <EditProfile data={data} />
+          </div>
+        )}
         <CgMore color="white" size={30} className="rounded-2xl border p-1" />
-        <button className="rounded-2xl border bg-white px-4 py-1 font-bold text-black disabled:opacity-45">
-          Update Profile
+        <button
+          className="rounded-2xl border bg-white px-4 py-1 font-bold text-black disabled:opacity-45"
+          onClick={open}
+        >
+          Edit Profile
         </button>
       </div>
     );

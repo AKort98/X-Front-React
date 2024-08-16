@@ -7,13 +7,11 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import CreatePost from "./Post/CreatePost";
-import { GiPerson, GiRamProfile } from "react-icons/gi";
 
 function Sidebar() {
   const location = useLocation();
   const currentUser = JSON.parse(localStorage.getItem("user"));
   const [open, setOpen] = useState();
-  console.log(location);
 
   return (
     <div className="hidden flex-col md:flex md:w-[300px]">

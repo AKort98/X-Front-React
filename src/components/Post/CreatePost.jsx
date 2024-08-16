@@ -155,7 +155,6 @@ function CreatePost() {
                     open={emoji}
                     theme="dark"
                     onEmojiClick={handleEmojiClick}
-                    emojiStyle="apple"
                     lazyLoadEmojis={true}
                   />
                 </div>
