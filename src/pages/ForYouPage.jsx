@@ -1,7 +1,13 @@
 import React from "react";
+import ForYou from "../components/ForYou";
 
 function ForYouPage() {
-  return <div className="bg-red-300">ForYou</div>;
+  return (
+    <div>
+      <ForYou />
+      ForYou
+    </div>
+  );
 }
 
 export default ForYouPage;

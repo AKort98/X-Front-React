@@ -110,9 +110,10 @@ function CreatePost() {
         <div className="mt-2 flex w-full flex-col text-wrap">
           <textarea
             placeholder="What is happening?!"
-            className="bg-transparent text-xl focus:outline-none"
+            className="resize-none overflow-scroll bg-transparent text-xl focus:outline-none"
             value={content}
             onChange={(e) => handleInput(e)}
+            rows={2}
           />
 
           <div className="mx-auto w-[600px]">

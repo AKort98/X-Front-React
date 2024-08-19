@@ -57,10 +57,10 @@ function Feed() {
   return (
     <>
       <Header />
-      <div className="border-l-gray-700 border-r-gray-700 pb-12 sm:border-r-[1px] sm:pb-0 md:border-l-[1px]">
-        <div>
-          <ForYou />
-        </div>
+      <div className="fixed z-20 hidden w-[750px] backdrop-blur-md md:block">
+        <ForYou />
+      </div>
+      <div className="border-l-gray-700 border-r-gray-700 pb-12 sm:border-r-[1px] sm:pb-0 md:mt-14 md:border-l-[1px]">
         <div className="hidden sm:block">
           <CreatePost />
         </div>

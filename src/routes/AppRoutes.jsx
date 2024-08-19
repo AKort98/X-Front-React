@@ -13,6 +13,7 @@ import ProtectedProfile from "../components/Profile/ProtectedProfile.jsx";
 import UserPosts from "../components/Profile/UserPosts.jsx";
 import UserReplies from "../components/Profile/UserReplies.jsx";
 import UserMedia from "../components/Profile/UserMedia.jsx";
+import ForYouPage from "../pages/ForYouPage.jsx";
 const AppRoutes = () => {
   return (
     <BrowserRouter>
@@ -24,6 +25,8 @@ const AppRoutes = () => {
         <Route element={<ProtectedRoutes />}>
           <Route element={<MainLayout />}>
             <Route path="/home" element={<Feed />} />
+            <Route path="/foryou" element={<ForYouPage />} />
+
             <Route path="/post/:id" element={<PostDetails />} />
             <Route path="/comment/:commentId" element={<CommentDetails />} />
             <Route element={<ProtectedProfile />}>

@@ -1,14 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function ForYou() {
+  const location = useLocation();
+  console.log(location);
+
   return (
-    <div className="flex w-full justify-between border-b-[0.5px] border-b-gray-700 font-semibold text-white">
-      <div className="flex-1 cursor-pointer p-4 text-center text-white hover:bg-[#111111af]">
+    <div className="flex w-full justify-between border border-b-[1px] border-t-0 border-b-gray-700 border-l-gray-700 border-r-gray-700 bg-transparent font-semibold text-white">
+      <Link
+        to={"/foryou"}
+        className={`flex-1 cursor-pointer p-4 text-center text-gray-700 hover:bg-[#111111af] ${location.pathname === "/foryou" ? "text-white" : ""}`}
+      >
         For You
-      </div>
-      <div className="flex-1 cursor-pointer p-4 text-center text-white hover:bg-[#111111af]">
+      </Link>
+      <Link
+        to={"/home"}
+        className={`flex-1 cursor-pointer p-4 text-center text-gray-700 hover:bg-[#111111af] ${location.pathname === "/home" ? "text-white" : ""}`}
+      >
         Following
-      </div>
+      </Link>
     </div>
   );
 }
