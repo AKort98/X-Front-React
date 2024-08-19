@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Apple from "../components/Apple";
 import LogoX from "../components/LogoX";
 import userAuthStore from "../zustand/authStore";
+import Google from "../components/Google";
 function Signin() {
   const [formData, setFormData] = useState({
     username: "",
@@ -72,7 +73,7 @@ function Signin() {
           </span>
         </h1>
         <div className="flex flex-col gap-4">
-          <Apple />
+          <Google />
           <Apple />
         </div>
         <div className="flex w-full items-center gap-2 text-white">

@@ -14,6 +14,7 @@ function PostComment({ data }) {
   const [loading, setloading] = useState(false);
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState();
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
   const { id } = useParams();
@@ -70,6 +71,11 @@ function PostComment({ data }) {
   const handleButtonClick = () => {
     fileInputRef.current.click();
   };
+  const handleImagepreview = (e) => {
+    setImage(e.target.files[0]);
+    const previedImage = URL.createObjectURL(e.target.files[0]);
+    setPreviewUrl(previedImage);
+  };
 
   return (
     <div className="border-b-[0.5px] border-gray-700 p-4">
@@ -91,6 +97,16 @@ function PostComment({ data }) {
             value={content}
             onChange={(e) => setContent(e.target.value)}
           ></textarea>
+          <div className="mx-auto w-[600px]">
+            <div className="flex flex-wrap">
+              {previewUrl && (
+                <img
+                  src={previewUrl}
+                  className="w-1/2 rounded-sm object-cover"
+                />
+              )}
+            </div>
+          </div>
           {showReply ? (
             <div className="mt-6 flex items-end justify-between">
               <div className="flex w-1/3 justify-between gap-3">
@@ -99,7 +115,7 @@ function PostComment({ data }) {
                   multiple
                   accept="image/*"
                   ref={fileInputRef}
-                  onChange={(e) => setImage(e.target.files[0])}
+                  onChange={(e) => handleImagepreview(e)}
                   hidden={true}
                 ></input>
                 <FaUpload

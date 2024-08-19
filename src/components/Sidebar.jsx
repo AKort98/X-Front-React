@@ -14,7 +14,7 @@ function Sidebar() {
   const [open, setOpen] = useState();
 
   return (
-    <div className="hidden flex-col md:flex md:w-[300px]">
+    <div className="hidden h-dvh flex-col gap-7 md:flex md:w-[300px]">
       {open && (
         <div className="fixed flex h-full w-dvw items-center justify-center bg-[#383838de]">
           <button
@@ -63,7 +63,7 @@ function Sidebar() {
           <li className="">Profile</li>
         </Link>
       </ul>
-      <div className="mt-4 px-8">
+      <div className="px-8">
         <button
           value="Post"
           className="w-full rounded-2xl bg-blue-800 p-2 text-xl text-white"
@@ -72,7 +72,7 @@ function Sidebar() {
           Post
         </button>
       </div>
-      <div className="mt-4 flex w-full gap-2 px-8 capitalize">
+      <div className="flex w-full gap-2 px-8 capitalize">
         <img
           src={currentUser.avatar}
           alt="user avatar"

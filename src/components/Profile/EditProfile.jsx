@@ -104,6 +104,10 @@ function EditProfile({ data }) {
       requestPayload.avatar = newAvatarUrl;
     }
 
+    if (formData.header === null) {
+      requestPayload.header = "remove";
+    }
+
     const response = await fetch("http://localhost:8080/user/user/update", {
       method: "PUT",
       headers: {

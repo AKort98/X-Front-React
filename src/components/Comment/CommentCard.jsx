@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import ReactLoading from "react-loading";
 import { getTimeOfTweet, getDayOfTweet } from "../../utils/TimeConversion";
 import { CgComment } from "react-icons/cg";
+import { BiComment } from "react-icons/bi";
 
 function CommentCard() {
   const { commentId } = useParams();
@@ -72,9 +73,11 @@ function CommentCard() {
           key={image.id}
         />
       ))}
-      <div className="mt-4 flex">
-        <CgComment color="gray" />
-        <span>{data.reply}</span>
+      <div className="mt-2 flex items-center gap-1 text-gray-400">
+        <span>
+          <BiComment className="size-4" />
+        </span>
+        <small>{data.replyCount}</small>
       </div>
     </div>
   );

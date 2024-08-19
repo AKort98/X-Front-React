@@ -15,7 +15,7 @@ function Comment({ data, replyCount }) {
           className="size-12 rounded-full hover:opacity-40"
         />
       </Link>
-      <Link to={`/comment/${data.id}`} className="flex flex-col">
+      <Link to={`/comment/${data.id}`} className="flex w-full flex-col">
         <div className="flex gap-1">
           <span className="text-white">{data.localUser.displayname}</span>
           <span className="text-[#777777]">
@@ -26,7 +26,7 @@ function Comment({ data, replyCount }) {
         </div>
         <p className="text-lg text-white">{data.content}</p>
         {data.commentImageses.length == 1 && (
-          <div className="flex justify-center rounded-xl object-cover">
+          <div className="flex w-full justify-center rounded-xl object-cover">
             <img
               src={data.commentImageses[0].url}
               alt="image"

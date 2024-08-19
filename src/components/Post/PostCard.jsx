@@ -28,7 +28,7 @@ function PostCard({ data }) {
           <img
             src={imageUrl}
             alt="preview image"
-            className="h-[90%] rounded-lg"
+            className="h-[90%] rounded-lg object-contain"
           />
         </div>
       )}
