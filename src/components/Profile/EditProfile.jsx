@@ -168,7 +168,11 @@ function EditProfile({ data }) {
                 className="size-10 rounded-full bg-[#00000062] p-2 text-white hover:bg-[#b8b4b423]"
               />
             </button>
-            <button className="w-full" onClick={removeImage} hidden={remove}>
+            <button
+              className="w-full"
+              onClick={removeImage}
+              hidden={remove || formData.header === null}
+            >
               <CgClose className="size-10 rounded-full bg-[#00000062] p-2 text-white hover:bg-[#b8b4b423]" />
             </button>
           </div>
