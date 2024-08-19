@@ -64,7 +64,6 @@ function CommentsFeed({ comment }) {
               <Comment data={comment.comment} replyCount={comment.replyCount} />
             </div>
           ))}
-          ,
         </div>
       ))}
 

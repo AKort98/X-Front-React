@@ -1,7 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
-import { getDayandMonth } from "../../utils/TimeConversion";
+import ReactLoading from "react-loading";
+import { getTimeOfTweet, getDayOfTweet } from "../../utils/TimeConversion";
+import { CgComment } from "react-icons/cg";
 
 function CommentCard() {
   const { commentId } = useParams();
@@ -23,27 +25,46 @@ function CommentCard() {
     { retry: false },
   );
 
-  if (isLoading) return "Loading";
+  if (isLoading)
+    return (
+      <div className="flex justify-center">
+        <ReactLoading type="spinningBubbles" color="blue" width={24} />;
+      </div>
+    );
   if (error) return "Something went wrong";
 
-  const day = getDayandMonth(data.createdAt);
+  const day = getDayOfTweet(data.comment.createdAt);
+  const time = getTimeOfTweet(data.comment.createdAt);
+  console.log(data);
 
   return (
     <div className="flex flex-col p-4">
-      <Link to={`/user/${data.localUser.username}`} className="flex gap-4">
+      <Link
+        to={`/user/${data.comment.localUser.username}`}
+        className="flex gap-4"
+      >
         <img
-          src={data.localUser.avatar}
+          src={data.comment.localUser.avatar}
           alt="avatar"
           className="size-14 rounded-full hover:opacity-45"
         />
         <div className="flex flex-col">
-          <span className="text-white">{data.localUser.displayname}</span>
-          <span className="text-gray-500">{"@" + data.localUser.username}</span>
+          <span className="text-white">
+            {data.comment.localUser.displayname}
+          </span>
+          <span className="text-gray-500">
+            {"@" + data.comment.localUser.username}
+          </span>
         </div>
       </Link>
-      <p className="mt-4 text-lg text-white">{data.content}</p>
+      <p className="mt-4 text-lg text-white">{data.comment.content}</p>
+      <div className="mt-3 flex items-center gap-2 font-bold text-gray-600">
+        <span>{time}</span>
+        <span>-</span>
+        <span>{day}</span>
+      </div>
 
-      {data.commentImageses.map((image) => (
+      {data.comment.commentImageses.map((image) => (
         <img
           src={image.url}
           alt="image from tweet"
@@ -51,6 +72,10 @@ function CommentCard() {
           key={image.id}
         />
       ))}
+      <div className="mt-4 flex">
+        <CgComment color="gray" />
+        <span>{data.reply}</span>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Comment from "../Comment/Comment";
+import Reply from "./Reply";
 
 function RepliesList({ pages }) {
   console.log(pages);
@@ -7,7 +7,9 @@ function RepliesList({ pages }) {
   return (
     <div className="flex flex-col">
       {pages.map((page) =>
-        page.replies.map((reply) => <Comment data={reply} key={reply.id} />),
+        page.replies.map((reply) => (
+          <Reply reply={reply.comment} replyCount={reply.replyCount} />
+        )),
       )}
     </div>
   );

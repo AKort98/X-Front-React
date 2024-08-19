@@ -197,7 +197,7 @@ function EditProfile({ data }) {
           <span
             className={`text-lg ${formData.displayname === "" ? "text-red-600" : "text-gray-700"} `}
           >
-            name
+            Name
           </span>
           <input
             type="text"

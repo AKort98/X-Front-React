@@ -8,7 +8,7 @@ function CommentDetails() {
   return (
     <div className="flex h-auto flex-col border-l-[1px] border-r-[1px] border-gray-700">
       <BackNav />
-      <div className="mt-14">
+      <div className="mt-16">
         <CommentCard />
         <RepliesFeed />
       </div>
