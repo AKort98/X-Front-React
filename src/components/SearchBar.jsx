@@ -44,7 +44,6 @@ function SearchBar() {
           onChange={(e) => searchUsers(e)}
           onBlur={(e) => {
             setText("");
-            setData();
           }}
         />
         {data && data.length > 0 && (
