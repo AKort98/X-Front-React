@@ -32,14 +32,16 @@ function PostDetails() {
     );
 
   return (
-    <div className="flex h-auto flex-col border-l-[1px] border-r-[1px] border-gray-700">
-      <BackNav />
-      <div className="mt-14">
-        <PostCard data={data} />
-        <InteractionBar data={data} />
-        <PostComment data={data} />
-        <CommentsFeed comment={data} />
+    <div className="flex h-auto flex-col">
+      <div className="border-l-[1px] border-r-[1px] border-gray-700">
+        <BackNav />
+        <div className="mt-14">
+          <PostCard data={data} />
+          <InteractionBar data={data} />
+          <PostComment data={data} />
+        </div>
       </div>
+      <CommentsFeed comment={data} />
     </div>
   );
 }

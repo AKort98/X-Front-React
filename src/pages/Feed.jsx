@@ -54,6 +54,13 @@ function Feed() {
       fetchNextPage();
     }
   }, [fetchNextPage, inView]);
+
+  if (isLoading)
+    return (
+      <div className="flex w-full justify-center p-5">
+        <ReactLoading type="spinningBubbles" color="#1D9BF0" width={30} />
+      </div>
+    );
   return (
     <>
       <Header />
@@ -64,11 +71,7 @@ function Feed() {
         <div className="hidden sm:block">
           <CreatePost />
         </div>
-        {isLoading && (
-          <div className="flex w-full justify-center p-5">
-            <ReactLoading type="spinningBubbles" color="#1D9BF0" width={30} />
-          </div>
-        )}
+
         {queriedPosts && <PostList pages={queriedPosts.pages} />}
       </div>
       <div className="mt-2 flex justify-center">

@@ -42,12 +42,19 @@ function SearchBar() {
           className="box-border w-full rounded-2xl bg-[#2d3236] p-2 text-[#ffffff93] focus:outline-none focus:outline-blue-800"
           placeholder="Search"
           onChange={(e) => searchUsers(e)}
-          onBlur={(e) => setText("")}
+          onBlur={(e) => {
+            setText("");
+            setData();
+          }}
         />
         {data && data.length > 0 && (
           <div className="absolute mt-6 flex h-72 w-full flex-col gap-2 overflow-scroll rounded-lg border border-gray-700 bg-black p-2">
             {data.map((user) => (
-              <Link to={`/user/${user.username}`} className="flex gap-2">
+              <Link
+                to={`/user/${user.username}`}
+                className="flex gap-2"
+                onClick={() => setData()}
+              >
                 <img
                   key={user.id} // Add a unique key for each element
                   src={user.avatar}

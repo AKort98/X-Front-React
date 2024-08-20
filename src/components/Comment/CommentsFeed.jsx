@@ -56,7 +56,7 @@ function CommentsFeed({ comment }) {
     );
   }
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col border-l-[1px] border-r-[1px] border-gray-700">
       {comments.pages.map((page, index) => (
         <div key={`page-${index}`}>
           {page.comments.map((comment) => (
