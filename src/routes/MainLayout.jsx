@@ -10,12 +10,12 @@ const MainLayout = () => (
     </div>
 
     {/* Main content */}
-    <div className="w-full overflow-scroll md:w-[750px]">
+    <div className="w-full overflow-scroll lg:w-[750px] lg:min-w-[750px]">
       <Outlet />
     </div>
 
     {/* SearchBar */}
-    <div className="hidden md:inline-block md:w-[300px]">
+    <div className="hidden md:hidden lg:inline-block lg:w-[300px]">
       <SearchBar />
     </div>
   </div>

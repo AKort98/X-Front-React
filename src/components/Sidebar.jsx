@@ -14,7 +14,7 @@ function Sidebar() {
   const [open, setOpen] = useState();
 
   return (
-    <div className="hidden h-dvh flex-col gap-7 md:flex md:w-[300px]">
+    <div className="hidden h-dvh flex-col gap-7 md:hidden lg:flex lg:w-[300px]">
       {open && (
         <div className="fixed flex h-full w-dvw items-center justify-center bg-[#383838de]">
           <button
