@@ -30,7 +30,7 @@ function Post({ post }) {
   };
 
   return (
-    <div className="flex flex-col border-b-[1px] border-gray-700 p-3">
+    <div className="flex flex-col border-b-[1px] border-gray-700 p-3 hover:bg-[#3535353f]">
       <div className="flex gap-3">
         <Link to={`/user/${post.tweet.user.username}`} className="w-[50px]">
           <img

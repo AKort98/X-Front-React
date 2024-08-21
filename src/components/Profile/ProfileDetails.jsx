@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ProfileDetails({ data }) {
   return (
@@ -15,10 +16,15 @@ function ProfileDetails({ data }) {
           </span>
           <span className="text-[#77777779]">Following</span>
         </div>
-        <div className="mt-2 flex gap-1">
-          <span className="font-semibold text-white">{data.followerCount}</span>
-          <span className="text-[#77777779]">Followers</span>
-        </div>
+        <Link
+          to={`/${data.user.username}/followers`}
+          className="mt-2 flex gap-1 text-white"
+        >
+          <div className="font-semibold text-white">{data.followerCount}</div>
+          <span className="text-[#77777779] transition-all duration-100 ease-in hover:font-semibold hover:text-blue-500">
+            Followers
+          </span>
+        </Link>
       </div>
     </div>
   );

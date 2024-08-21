@@ -39,7 +39,6 @@ function ProfilePage() {
         <ReactLoading type="spinningBubbles" color="#1D9BF0" width={30} />
       </div>
     );
-  console.log(data);
 
   return (
     <div className="flex h-auto flex-col md:border-l-[1px] md:border-r-[1px] md:border-gray-700">
