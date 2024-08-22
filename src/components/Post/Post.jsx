@@ -37,6 +37,7 @@ function Post({ post }) {
             src={post.tweet.user.avatar}
             alt="user avatar"
             className="size-8 cursor-pointer rounded-full hover:opacity-65 md:size-12"
+            loading="lazy"
           />
         </Link>
         <div className="flex w-full flex-col gap-1">
@@ -65,6 +66,7 @@ function Post({ post }) {
                 src={post.tweet.images[0].url}
                 alt="image"
                 className="rounded-xl object-cover"
+                loading="lazy"
               />
             </Link>
           )}
