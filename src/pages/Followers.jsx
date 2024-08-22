@@ -6,7 +6,6 @@ import FollowersList from "../components/FollowersList";
 
 export default function Followers() {
   const { username } = useParams("username");
-  console.log(username);
 
   const token = localStorage.getItem("token");
   const fetchFollowers = async () => {

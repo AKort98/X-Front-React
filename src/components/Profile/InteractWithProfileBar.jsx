@@ -1,6 +1,6 @@
 import React from "react";
 import { BiBell, BiMessage } from "react-icons/bi";
-import { CgClose, CgMore } from "react-icons/cg";
+import { CgMore } from "react-icons/cg";
 import { useState } from "react";
 import EditProfile from "./EditProfile";
 import userStore from "../../zustand/userStore";
