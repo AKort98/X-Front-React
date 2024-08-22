@@ -16,7 +16,7 @@ function NavigationBar() {
         to=""
         className={`flex-1 p-4 transition duration-300 ease-in-out ${
           isActive("")
-            ? "font-extrabold text-white"
+            ? "relative inline-block font-semibold text-white after:absolute after:bottom-0 after:left-16 after:h-1 after:w-1/2 after:rounded-xl after:bg-blue-500"
             : "text-[#777777] hover:bg-[#333333a2]"
         }`}
       >
@@ -26,7 +26,7 @@ function NavigationBar() {
         to="replies"
         className={`flex-1 p-4 transition duration-300 ease-in-out ${
           isActive("/replies")
-            ? "font-extrabold text-white"
+            ? "relative inline-block font-semibold text-white after:absolute after:bottom-0 after:left-16 after:h-1 after:w-1/2 after:rounded-xl after:bg-blue-500"
             : "text-[#777777] hover:bg-[#333333a2]"
         }`}
       >
@@ -36,7 +36,7 @@ function NavigationBar() {
         to="media"
         className={`flex-1 p-4 transition duration-300 ease-in-out ${
           isActive("/media")
-            ? "font-extrabold text-white"
+            ? "relative inline-block font-semibold text-white after:absolute after:bottom-0 after:left-16 after:h-1 after:w-1/2 after:rounded-xl after:bg-blue-500"
             : "text-[#777777] hover:bg-[#333333a2]"
         }`}
       >

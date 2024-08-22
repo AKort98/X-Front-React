@@ -37,7 +37,7 @@ function UserConnectionsTab() {
   if (isLoading) return "loading";
 
   return (
-    <div className="fixed z-10 w-full bg-transparent backdrop-blur-sm lg:w-[748px]">
+    <div className="fixed z-10 w-full border-b-[1px] border-b-gray-500 bg-transparent backdrop-blur-sm lg:w-[748px]">
       <div className="flex flex-col gap-1">
         <div className="flex gap-4 p-2">
           <button onClick={() => nav("/home")}>
@@ -55,7 +55,7 @@ function UserConnectionsTab() {
             to={`/${username}/followers`}
             className={`flex-1 p-3 text-center transition duration-300 ease-in-out ${
               isActive("followers")
-                ? "relative inline-block font-semibold text-white after:absolute after:bottom-0 after:left-24 after:h-1 after:w-1/2 after:rounded-xl after:bg-blue-500"
+                ? "relative inline-block font-semibold text-white after:absolute after:bottom-0 after:left-10 after:h-1 after:w-2/3 after:rounded-xl after:bg-blue-500 md:after:left-24 md:after:w-1/2"
                 : "text-[#777777] hover:bg-[#333333a2]"
             }`}
           >
@@ -65,7 +65,7 @@ function UserConnectionsTab() {
             to={`/${username}/following`}
             className={`flex-1 p-3 text-center transition duration-300 ease-in-out ${
               isActive("following")
-                ? "font-extrabold text-white"
+                ? "relative inline-block font-semibold text-white after:absolute after:bottom-0 after:left-10 after:h-1 after:w-2/3 after:rounded-xl after:bg-blue-500 md:after:left-24 md:after:w-1/2"
                 : "text-[#777777] hover:bg-[#333333a2]"
             }`}
           >

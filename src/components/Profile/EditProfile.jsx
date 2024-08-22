@@ -219,10 +219,11 @@ function EditProfile({ data }) {
         <div className="flex flex-col">
           <span className="text-lg text-gray-700">Bio</span>
           <textarea
-            className="rounded-md border-[1px] border-gray-700 bg-transparent p-2 font-semibold text-white focus:border-blue-600 focus:outline-none"
+            className="resize-none rounded-md border-[1px] border-gray-700 bg-transparent p-2 font-semibold text-white focus:border-blue-600 focus:outline-none"
             value={formData.description}
             name="description"
             onChange={handleChange}
+            rows={3}
           />
         </div>
         <div className="flex flex-col">
